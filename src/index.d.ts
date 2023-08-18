@@ -26,3 +26,10 @@ interface Cart {
   totalProducts: number;
   totalQuantity: number;
 }
+
+interface BaseResponse {
+  limit: number;
+  skip: number;
+  total: number;
+  products: Product[];
+}

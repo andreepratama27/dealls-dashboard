@@ -1,27 +1,18 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import ProductTable from "@/components/ProductTable";
+import { fetchCartDetail } from "@/services/cart.service";
 import { ApiUrl } from "@/utils/constant";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 
 export default function CartDetail() {
-  const [cart, setCart] = useState<Cart | null>(null);
   const params = useParams();
 
-  const fetchCartDetail = async () => {
-    try {
-      const response = await fetch(`${ApiUrl}/carts/${params.id}`);
-      const result = await response.json();
-      setCart(result);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchCartDetail();
-  }, []);
+  const { data: cart } = useQuery(["fetchCartDetail", params.id], () =>
+    fetchCartDetail({ id: parseInt(params.id as string) })
+  );
 
   return (
     <main>

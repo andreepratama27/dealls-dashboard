@@ -1,10 +1,11 @@
 import { ApiUrl } from "@/utils/constant";
 
-export default async function getData({ page }: { page: number }) {
+export async function fetchProductData({ page = 0 }: { page: number }) {
   try {
     const response = await fetch(`${ApiUrl}/products?limit=10&skip=${page}`);
+    const result = await response.json();
 
-    return response.json();
+    return result;
   } catch (error) {
     throw error;
   }
