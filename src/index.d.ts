@@ -7,9 +7,19 @@ interface Product {
   category: string;
 }
 
+interface CartProduct {
+  discountedPercentage: number;
+  discountedPrice: number;
+  id: number;
+  price: number;
+  quantity: number;
+  title: string;
+  total: number;
+}
+
 interface Cart {
   id: number;
-  products: Product[];
+  products: CartProduct[];
   total: number;
   discountedTotal: number;
   userId: number;
