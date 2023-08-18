@@ -1,10 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import ProductTable from "@/components/ProductTable";
 import { fetchCartDetail } from "@/services/cart.service";
-import { ApiUrl } from "@/utils/constant";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 
 export default function CartDetail() {
@@ -64,7 +61,7 @@ export default function CartDetail() {
               </tr>
             </thead>
             <tbody className="border">
-              {cart?.products?.map((item) => (
+              {cart?.products?.map((item: ProductCart) => (
                 <tr key={item.id}>
                   <td className="p-2 border-b border-r">{item.title}</td>
                   <td className="p-2 border-b border-r">{item.price}</td>

@@ -7,6 +7,12 @@ interface Product {
   category: string;
 }
 
+interface ProductCart extends Product {
+  discountedPrice: string;
+  quantity: string;
+  total: string;
+}
+
 interface CartProduct {
   discountedPercentage: number;
   discountedPrice: number;

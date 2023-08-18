@@ -1,10 +1,7 @@
 "use client";
-import Pagination from "@/components/Pagination";
 import SearchBar from "@/components/SearchBar";
 import { fetchProductData } from "@/services/product.service";
-import { ApiUrl } from "@/utils/constant";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 
 interface ProductTableProps {

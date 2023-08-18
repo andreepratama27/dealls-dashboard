@@ -1,7 +1,7 @@
 import { ApiUrl } from "@/utils/constant";
 import CartTable from "./_components/CartTable";
 
-export async function getData(): Promise<Cart[]> {
+async function getData(): Promise<Cart[]> {
   try {
     const response = await fetch(`${ApiUrl}/carts?limit=10&skip=0`);
     const result = await response.json();

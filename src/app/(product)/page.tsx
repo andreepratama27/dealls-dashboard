@@ -2,12 +2,12 @@
 import { ApiUrl } from "@/utils/constant";
 import ProductTable from "./components/ProductTable";
 
-export async function getData(): Promise<Product[]> {
+async function getData(): Promise<Product[]> {
   try {
     const response = await fetch(`${ApiUrl}/products?limit=10&skip=0`);
     const result = await response.json();
 
-    return result.products;
+    return result;
   } catch (error) {
     throw error;
   }
